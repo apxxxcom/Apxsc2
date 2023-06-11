@@ -99,7 +99,7 @@ case "menu":{
 | ᴢᴇᴇᴏɴᴇᴏꜰᴄ (ꜱᴄʀᴇꜱᴛᴀᴘɪ)
 | ᴍʏ ꜱᴜʙꜱᴄʀɪʙᴇʀ (ꜱᴜᴘᴘᴏʀᴛ ᴍᴇ)
 | ᴀʟʟ ᴄʀᴇᴀᴛᴏʀ & ᴅᴇᴠ`
-client.sendMessage(from, { image: { url: 'https://i.ibb.co/413tM19/20230608-202722.png' }, caption: resmenu }
+client.sendMessage(from, { image: { url: 'https://i.ibb.co/413tM19/20230608-202722.png' }, caption: resmenu })
 }
 break
 
@@ -111,11 +111,11 @@ if (!quoted) throw `*Balas Video/Image Dengan Caption* ${prefix + command}`
 reply(msgapx.loading)
 if (/image/.test(mime)) {
 let media = await quoted.download()
-client.sendMessage(from, { sticker: { url: media }, { packname: msgapx.author, author: msgapx.author }, { quoted }})
+client.sendMessage(from, { sticker: { url: media }, packname: msgapx.author, author: msgapx.author, quoted: mek })
 } else if (/video/.test(mime)) {
 if ((quoted.msg || quoted).seconds > 11) return reply('*Maksimal 10 detik!*')
 let media = await quoted.download()
-client.sendMessage(from, { sticker: { url: media }, { packname: msgapx.author, author: msgapx.author }, { quoted }})
+client.sendMessage(from, { sticker: { url: media },packname: msgapx.author, author: msgapx.author, quoted: mek })
 } else {
 throw `*Kirim Gambar/Video Dengan Caption* ${prefix + command}\nDurasi *Video 1-9 Detik*`
 }
@@ -158,7 +158,7 @@ if (!emoji2) throw `Example : ${prefix + command} 😅+🤔`
 reply(mess.wait)
 let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 for (let res of anu.results) {
-  client.sendMessage(from, { sticker: { url: media }, { packname: msgapx.author, author: msgapx.author }, { quoted }})
+  client.sendMessage(from, { sticker: { url: media }, packname: msgapx.author, author: msgapx.author, quoted: mek })
 }
 }
 break
