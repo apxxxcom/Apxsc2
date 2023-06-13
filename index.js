@@ -1,9 +1,9 @@
-const { default: makeWASocket, DisconnectReason, useMultiFileAuthState } = require('@adiwajshing/baileys')
-const { state } = useMultiFileAuthState('./session.json')
+const { default: WADefault, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require('@adiwajshing/baileys')
+const { state, saveCreds } = useMultiFileAuthState('./session.json')
 const fs = require('fs')
 const pino = require('pino')
 const connectToWhatsApp = () => {
-const client = makeWASocket({ logger: pino ({ level: 'silent' }), printQRInTerminal: true, auth: state, browser: ["Bug Simple KirBotz", "Dekstop", "3.0"]})
+const client = WADefault({ logger: pino ({ level: 'silent' }), printQRInTerminal: true, auth: state, browser: ["Bug Simple KirBotz", "Dekstop", "3.0"]})
 
 client.ev.on('messages.upsert', async mek => {
 if (!mek.messages) return
