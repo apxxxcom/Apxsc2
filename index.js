@@ -1,5 +1,5 @@
-const { default: makeWASocket, DisconnectReason, useSingleFileAuthState } = require('@adiwajshing/baileys')
-const { state } = useSingleFileAuthState('./session.json')
+const { default: makeWASocket, DisconnectReason, useMultiFileAuthState } = require('@adiwajshing/baileys')
+const { state } = useMultiFileAuthState('./session.json')
 const fs = require('fs')
 const pino = require('pino')
 const connectToWhatsApp = () => {
